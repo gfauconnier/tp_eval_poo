@@ -4,7 +4,7 @@ class Form {
 
   public function __construct()
   {
-    $this->form = '<form method="post" action=""';
+    $this->form = '<form method="post" action="">';
   }
 
   /**
