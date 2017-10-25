@@ -21,7 +21,7 @@ class VehiculeManager{
   public function vehiculeExists($value)
   {
       $selector = $this->val_type($value);
-      $query = $this->_db->query('SELECT * FROM vehicules WHERE '.$selector.' = '.$value);
+      $query = $this->_db->query('SELECT * FROM vehicules WHERE '.$selector.' = \''.$value.'\'');
       $data = $query->fetch(PDO::FETCH_ASSOC);
       if ($data) {
           return true;
@@ -84,12 +84,11 @@ class VehiculeManager{
   public function addVehicule(array $data)
   {
       if (!$this->vehiculeExists($data['license_plate'])) {
-          $query = $this->_db->prepare('INSERT INTO vehicules(license_plate, type, brand, model, price) VALUES(:license_plate, type, brand, model, price)');
+          $query = $this->_db->prepare('INSERT INTO vehicules(license_plate, type, brand, model, price) VALUES(:license_plate, :type, :brand, :model, :price)');
           $query->execute(array('license_plate'=>$data['license_plate'], 'type'=>$data['type'], 'brand'=>$data['brand'], 'model'=>$data['model'], 'price'=>$data['price']));
-          $vehicule = $this->getVehicule($data['license_plate']);
-          return $vehicule->getType().' créé.';
+          return 'Vehicule created.';
       }
-      return false;
+      return 'A vehicule with this license plate already exists.';
   }
 
   // removes the vehicule from the database

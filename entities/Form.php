@@ -28,7 +28,7 @@ class Form {
     }
   }
 
-  public function addSelect($name, $options)
+  public function addSelect($name, array $options)
   {
     $this->form .= '<label for="'.$name.'"></label><select id="'.$name.'" name="'.$name.'">';
     foreach ($options as $option) {
