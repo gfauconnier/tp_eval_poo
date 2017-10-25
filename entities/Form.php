@@ -37,6 +37,14 @@ class Form {
     $this->form .= '</select>';
   }
 
+  public function addCheckboxes(array $checkboxes, array $checked)
+  {
+    foreach ($checkboxes as $value) {
+      $ischecked = in_array($value, $checked) ? 'checked' : '';
+      $this->form .= '<input type="checkbox" name="'.$value.'" value="'.$value.'" '.$ischecked.'>'.$value;
+    }
+  }
+
   public function addTextarea($name)
   {
     $form .= '<textarea name="'.$name.'">';

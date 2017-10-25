@@ -3,7 +3,7 @@
 /**
  *
  */
-class Camion extends Vehicule
+class Truck extends Vehicule
 {
 
 

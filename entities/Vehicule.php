@@ -77,7 +77,7 @@ class Vehicule
      *
      * @return mixed
      */
-    public function getLicensePlate()
+    public function getLicense_plate()
     {
         return $this->license_plate;
     }    /**
@@ -87,7 +87,7 @@ class Vehicule
      *
      * @return self
      */
-    public function setLicensePlate($license_plate)
+    public function setLicense_plate($license_plate)
     {
         $this->license_plate = $license_plate;
     }

@@ -5,6 +5,23 @@ require '../service/sanitize.php';
 
 require 'new_vehicule.php';
 
-$vehicules = $manager->getAllVehicules();
+
+$checked = [];
+
+if(isset($_POST['Submit'])){
+  foreach ($_POST as $value) {
+    $checked[]=$value;
+  }
+}
+else {
+  $checked = ['Car', 'Bike', 'Truck'];
+}
+
+$form_check = new Form();
+$form_check->addCheckboxes(['Car', 'Bike', 'Truck'], $checked);
+$form_check->addInput('submit', 'Submit', 'Submit');
+
+$vehicules = $manager->getAllVehicules($checked);
+
 
 require '../view/home_v.php';
