@@ -6,7 +6,7 @@ $form_new->addInput('text', 'license_plate');
 $form_new->addInput('text', 'brand');
 $form_new->addInput('text', 'model');
 $form_new->addInput('text', 'price');
-$form_new->addInput('submit', 'create', 'Create');
+$form_new->addInput('submit', 'create', 'btn btn-success', 'Create');
 
 if(isset($_POST['create'])) {
   $vehicule_post = [];

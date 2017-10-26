@@ -1,0 +1,16 @@
+table {
+  margin: auto; 
+}
+
+table tr td {
+  min-width: 15vw;
+  padding: 2px;
+}
+
+.buttons_td a,.buttons_td form {
+  margin: 0 2px;
+}
+
+.detail_h {
+  font-weight: bold;
+}

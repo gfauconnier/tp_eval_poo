@@ -36,20 +36,21 @@ class VehiculeManager
     {
         $selector = $this->val_type($value);
         if ($this->vehiculeExists($value)) {
-            $query = $this->_db->query('SELECT id, type, license_plate, brand, model, price, description FROM vehicules WHERE '.$selector.' = '.$value);
+            $query = $this->_db->query('SELECT * FROM vehicules WHERE '.$selector.' = '.$value);
             $data = $query->fetch(PDO::FETCH_ASSOC);
 
             switch ($data['type']) {
-            case 'Voiture':
-              return new Voiture($data);
+            case 'Car':
+              return new Car($data);
               break;
-            case 'Moto':
-              return new Moto($data);
+            case 'Bike':
+              return new Bike($data);
               break;
-            case 'Camion':
-              return new Camion($data);
+            case 'Truck':
+              return new Truck($data);
               break;
             default:
+              return 'dafuk';
               break;
           }
         }
@@ -128,6 +129,7 @@ class VehiculeManager
         case 3:
           $add_to_query = ' WHERE type = \''.$checked[0].'\' OR type = \''.$checked[1].'\'';
           break;
+        case 4:
         default:
           break;
       }
