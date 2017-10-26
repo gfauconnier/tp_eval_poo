@@ -11,11 +11,22 @@ if(isset($_GET['id'])) {
   $vehicule = $manager->getVehicule($id);
   if($vehicule) {
 
+    if(isset($_POST['modify'])) {
+      if(isset($_POST['brand'], $_POST['model'], $_POST['price'], $_POST['description']) &&  !empty($_POST['brand']) && !empty($_POST['model']) && !empty($_POST['price'])) {
+        foreach ($_POST as $key => $value){
+          $vehicule_mod[$key] = sanitizeStr($value);
+        }
+        $vehicule->hydrate($vehicule_mod);
+        $manager->updateVehicule($vehicule);
+      }
+    }
+
     $form_modify = new Form();
     $form_modify->addInput('text', 'brand', '', $vehicule->getBrand());
     $form_modify->addInput('text', 'model', '', $vehicule->getModel());
     $form_modify->addInput('text', 'price', '', $vehicule->getPrice());
     $form_modify->addTextarea('description', '', $vehicule->getDescription());
+    $form_modify->addInput('submit', 'modify', 'btn btn-primary', 'Modify');
 
     $form_delete = new Form('', ['home']);
     $form_delete->addHidden('id_vehicule', $vehicule->getId());

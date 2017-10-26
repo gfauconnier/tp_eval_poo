@@ -108,8 +108,10 @@ class VehiculeManager
     // changes the value of the character's degats in the database
     public function updateVehicule($vehicule)
     {
-        $query = $this->_db->prepare('UPDATE vehicules SET brand = :brand, model = :model, price = :price, description = :description WHERE id = :id');
-        $query->execute(array('id'=>$vehicule->getId(),'brand'=>$vehicule->getBrand(),'model'=>$vehicule->getModel(),'price'=>$vehicule->getPrice(),'description'=>$vehicule->getDescription()));
+        if ($this->vehiculeExists($vehicule->getId())) {
+            $query = $this->_db->prepare('UPDATE vehicules SET brand = :brand, model = :model, price = :price, description = :description WHERE id = :id');
+            $query->execute(array('id'=>$vehicule->getId(),'brand'=>$vehicule->getBrand(),'model'=>$vehicule->getModel(),'price'=>$vehicule->getPrice(),'description'=>$vehicule->getDescription()));
+        }
     }
 
     // returns the 'type' of sent value
@@ -121,8 +123,8 @@ class VehiculeManager
     // returns a string to add to get all query
     public function is_checked(array $checked)
     {
-      $add_to_query = '';
-      switch (count($checked)) {
+        $add_to_query = '';
+        switch (count($checked)) {
         case 2:
           $add_to_query = ' WHERE type = \''.$checked[0].'\'';
           break;
@@ -133,6 +135,6 @@ class VehiculeManager
         default:
           break;
       }
-      return $add_to_query;
+        return $add_to_query;
     }
 }

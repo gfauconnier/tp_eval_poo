@@ -1,7 +1,5 @@
-
-
-
-
-<?php echo $form_modify->getForm(); ?>
-
-<?php echo $form_delete->getForm(); ?>
+<?php 
+echo $form_modify->getForm();
+echo $form_delete->getForm();
+require '../view/template/foot.php';
+?>
