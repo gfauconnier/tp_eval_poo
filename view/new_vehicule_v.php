@@ -4,4 +4,9 @@ require '../view/template/header.php';
 if (isset($message)) {
   echo $message;
 }
-echo $form_new->getForm();
+?>
+<div class="container collapse" id="collapseNewVehicule">
+<?php
+  echo $form_new->getForm();
+?>
+</div>

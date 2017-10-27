@@ -1,12 +1,13 @@
 <?php
 
-$form_new = new Form();
+$form_new = new Form('new_vehicule');
 $form_new->addSelect('type', ['Car', 'Bike', 'Truck']);
-$form_new->addInput('text', 'license_plate');
-$form_new->addInput('text', 'brand');
-$form_new->addInput('text', 'model');
-$form_new->addInput('text', 'price');
-$form_new->addInput('submit', 'create', 'btn btn-success', 'Create');
+$form_new->addInput('text', 'license_plate', 'col-7');
+$form_new->addInput('text', 'brand', 'col-7');
+$form_new->addInput('text', 'model', 'col-7');
+$form_new->addInput('text', 'price', 'col-7');
+$form_new->addTextarea('description', 'col-7');
+$form_new->addInput('submit', 'create', 'btn btn-success col-4', 'Create');
 
 if(isset($_POST['create'])) {
   $vehicule_post = [];

@@ -1,7 +1,8 @@
-<?php
-
-echo $form_check->getForm();
-?>
+<div class="sort_type">
+  <?php
+  echo $form_check->getForm();
+  ?>
+</div>
 <table>
   <thead>
     <tr>

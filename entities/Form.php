@@ -30,38 +30,44 @@ class Form {
   {
     $required = '';
     if($type == 'text') {
-      $this->form .= '<label for="'.$name.'">'.ucfirst($name).'</label>';
+      $this->form .= '<div class="newVehiculeFormDiv">';
+      $this->form .= '<label for="'.$name.'" class="col-3">'.ucfirst($name).' : </label>';
       $required = 'required';
     }
     $this->form .= '<input type="'.$type.'" id="'.$name.'" name ="'.$name.'" value="'.$value.'" class="'.$cssclasses.'" '.$required.'>';
     if ($type == 'submit') {
       $this->form .= '</form>';
     }
+    else {
+      $this->form .= '</div>';
+    }
   }
 
 // adds a select + options
   public function addSelect($name, array $options, $cssclasses='')
   {
-    $this->form .= '<label for="'.$name.'"></label><select id="'.$name.'" name="'.$name.'" class="'.$cssclasses.'">';
+    $this->form .= '<div class="newVehiculeFormDiv"><label for="'.$name.'" class="col-3">'.ucfirst($name).' : </label><select id="'.$name.'" name="'.$name.'" class="'.$cssclasses.'">';
     foreach ($options as $option) {
       $this->form .= '<option value="'.$option.'">'.ucfirst($option).'</option>';
     }
-    $this->form .= '</select>';
+    $this->form .= '</select></label></div>';
   }
 
 // adds checkboxes with labels
   public function addCheckboxes(array $checkboxes, array $checked)
   {
+    $this->form .= '<div class="row col-6 justify-content-around checkboxes">';
     foreach ($checkboxes as $value) {
       $ischecked = in_array($value, $checked) ? 'checked' : '';
-      $this->form .= '<input type="checkbox" name="'.$value.'" value="'.$value.'" '.$ischecked.'>'.$value;
+      $this->form .= '<label for="'.$value.'">'.$value.'</label><input id="'.$value.'" type="checkbox" name="'.$value.'" value="'.$value.'" '.$ischecked.'>';
     }
+    $this->form .= '</div>';
   }
 
 // adds a textarea
   public function addTextarea($name, $cssclasses='', $value='')
   {
-    $this->form .= '<label for="'.$name.'">Description : </label><textarea id="'.$name.'" name="'.$name.'" class="'.$cssclasses.'">'.$value.'</textarea>';
+    $this->form .= '<div class="newVehiculeFormDiv"><label for="'.$name.'" class="col-3">'.ucfirst($name).' : </label><textarea id="'.$name.'" name="'.$name.'" class="'.$cssclasses.'">'.$value.'</textarea></div>';
   }
 
 // adds a hidden input

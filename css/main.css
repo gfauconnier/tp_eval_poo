@@ -1,5 +1,5 @@
-table {
-  margin: auto; 
+table, .sort_type form {
+  margin: auto;
 }
 
 table tr td {
@@ -7,10 +7,30 @@ table tr td {
   padding: 2px;
 }
 
-.buttons_td a,.buttons_td form {
+.buttons_td a, .buttons_td form {
   margin: 0 2px;
 }
 
 .detail_h {
   font-weight: bold;
+}
+
+form.new_vehicule {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+}
+
+form.checkboxes {
+  margin: 2vh auto;
+}
+
+.checkboxes label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+textarea {
+  resize: none;
 }
