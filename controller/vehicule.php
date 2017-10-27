@@ -22,15 +22,15 @@ if(isset($_GET['id'])) {
     }
 
     $form_modify = new Form();
-    $form_modify->addInput('text', 'brand', '', $vehicule->getBrand());
-    $form_modify->addInput('text', 'model', '', $vehicule->getModel());
-    $form_modify->addInput('text', 'price', '', $vehicule->getPrice());
+    $form_modify->addInputText('brand', '', $vehicule->getBrand());
+    $form_modify->addInputText('model', '', $vehicule->getModel());
+    $form_modify->addInputText('price', '', $vehicule->getPrice());
     $form_modify->addTextarea('description', '', $vehicule->getDescription());
-    $form_modify->addInput('submit', 'modify', 'btn btn-primary', 'Modify');
+    $form_modify->addInputSubmit('modify', 'btn btn-primary', 'Modify');
 
     $form_delete = new Form('', ['home']);
     $form_delete->addHidden('id_vehicule', $vehicule->getId());
-    $form_delete->addInput('submit', 'delete', 'btn btn-danger', 'Delete');
+    $form_delete->addInputSubmit('delete', 'btn btn-danger', 'Delete');
     require '../view/vehicule_v.php';
 
   } else {

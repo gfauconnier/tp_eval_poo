@@ -26,21 +26,12 @@ class Form {
   }
 
 // adds an input text or submit
-  public function addInput($type, $name, $cssclasses='', $value='')
+  public function addInputText($name, $cssclasses='', $value='')
   {
-    $required = '';
-    if($type == 'text') {
-      $this->form .= '<div class="newVehiculeFormDiv">';
-      $this->form .= '<label for="'.$name.'" class="col-3">'.ucfirst($name).' : </label>';
-      $required = 'required';
-    }
-    $this->form .= '<input type="'.$type.'" id="'.$name.'" name ="'.$name.'" value="'.$value.'" class="'.$cssclasses.'" '.$required.'>';
-    if ($type == 'submit') {
-      $this->form .= '</form>';
-    }
-    else {
-      $this->form .= '</div>';
-    }
+    $this->form .= '<div class="newVehiculeFormDiv">';
+    $this->form .= '<label for="'.$name.'" class="col-3">'.ucfirst($name).' : </label>';
+    $this->form .= '<input type="text" id="'.$name.'" name ="'.$name.'" value="'.$value.'" class="'.$cssclasses.'" required>';
+    $this->form .= '</div>';
   }
 
 // adds a select + options
@@ -74,6 +65,13 @@ class Form {
   public function addHidden($name, $value)
   {
     $this->form .= '<input type="hidden" name="'.$name.'" value="'.$value.'">';
+  }
+
+  public function addInputSubmit($name, $cssclasses='', $value='')
+  {
+    //$this->form .= '<input type="submit" id="'.$name.'" name ="'.$name.'" value="'.$value.'" class="'.$cssclasses.'">';
+    $this->form .= '<button type="submit" class="'.$cssclasses.'" name="'.$name.'">'.$value.'</button>';
+    $this->form .= '</form>';
   }
 
 }

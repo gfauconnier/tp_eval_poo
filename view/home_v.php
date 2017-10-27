@@ -6,7 +6,7 @@
 <table id="vehiculesTable">
   <thead>
     <tr>
-      <th>Type</th><th>License Plate</th><th>Brand</th><th>Model</th><th>Price</th>
+      <th>Type</th><th>License Plate</th><th>Brand</th><th>Model</th><th>Price</th><th></th>
     </tr>
   </thead>
   <tbody>
@@ -19,14 +19,14 @@ foreach ($vehicules as $vehicule) { ?>
       <td><?php echo $vehicule->getBrand(); ?></td>
       <td><?php echo $vehicule->getModel(); ?></td>
       <td><?php echo $vehicule->getPrice(); ?></td>
-    <td class="row buttons_td">
+      <td class="row buttons_td">
       <?php
       $form_delete = new Form('', ['home']);
       $form_delete->addHidden('id_vehicule', $vehicule->getId());
-      $form_delete->addInput('submit', 'delete', 'btn btn-danger', 'Delete');
+      $form_delete->addInputSubmit('delete', 'btn btn-danger', '<i class="material-icons">delete_sweep</i>');
       echo $form_delete->getForm();
-       ?>
-    </td>
+      ?>
+     </td>
   </tr>
 <!-- </a> -->
 <?php }

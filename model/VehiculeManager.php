@@ -90,8 +90,8 @@ class VehiculeManager
     public function addVehicule(array $data)
     {
         if (!$this->vehiculeExists($data['license_plate'])) {
-            $query = $this->_db->prepare('INSERT INTO vehicules(license_plate, type, brand, model, price) VALUES(:license_plate, :type, :brand, :model, :price)');
-            $query->execute(array('license_plate'=>$data['license_plate'], 'type'=>$data['type'], 'brand'=>$data['brand'], 'model'=>$data['model'], 'price'=>$data['price']));
+            $query = $this->_db->prepare('INSERT INTO vehicules(license_plate, type, brand, model, price, description) VALUES(:license_plate, :type, :brand, :model, :price, :description)');
+            $query->execute(array('license_plate'=>$data['license_plate'], 'type'=>$data['type'], 'brand'=>$data['brand'], 'model'=>$data['model'], 'price'=>$data['price'], 'description'=>$data['description']));
             return 'Vehicule created.';
         }
         return 'A vehicule with this license plate already exists.';

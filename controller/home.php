@@ -22,7 +22,7 @@ if (isset($_POST['delete'])) {
 
 $form_check = new Form('row checkboxes');
 $form_check->addCheckboxes(['Car', 'Bike', 'Truck'], $checked);
-$form_check->addInput('submit', 'Submitcheck', 'btn btn-primary', 'Display selected');
+$form_check->addInputSubmit('Submitcheck', 'btn btn-primary', 'Display selected');
 
 $vehicules = $manager->getAllVehicules($checked);
 
