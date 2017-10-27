@@ -46,3 +46,8 @@ form.checkboxes {
 textarea {
   resize: none;
 }
+
+form.modify_vehicule input[type=text]{
+  border: none;
+  border-bottom: 1px solid grey;
+}

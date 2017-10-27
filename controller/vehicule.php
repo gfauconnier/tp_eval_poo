@@ -12,6 +12,7 @@ if(isset($_GET['id'])) {
   if($vehicule) {
 
     if(isset($_POST['modify'])) {
+
       if(isset($_POST['brand'], $_POST['model'], $_POST['price'], $_POST['description']) &&  !empty($_POST['brand']) && !empty($_POST['model']) && !empty($_POST['price'])) {
         foreach ($_POST as $key => $value){
           $vehicule_mod[$key] = sanitizeStr($value);
@@ -21,7 +22,7 @@ if(isset($_GET['id'])) {
       }
     }
 
-    $form_modify = new Form();
+    $form_modify = new Form('modify_vehicule');
     $form_modify->addInputText('brand', '', $vehicule->getBrand());
     $form_modify->addInputText('model', '', $vehicule->getModel());
     $form_modify->addInputText('price', '', $vehicule->getPrice());
@@ -31,6 +32,7 @@ if(isset($_GET['id'])) {
     $form_delete = new Form('', ['home']);
     $form_delete->addHidden('id_vehicule', $vehicule->getId());
     $form_delete->addInputSubmit('delete', 'btn btn-danger', 'Delete');
+
     require '../view/vehicule_v.php';
 
   } else {

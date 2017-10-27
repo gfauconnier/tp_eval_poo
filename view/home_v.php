@@ -20,6 +20,7 @@ foreach ($vehicules as $vehicule) { ?>
       <td><?php echo $vehicule->getModel(); ?></td>
       <td><?php echo $vehicule->getPrice(); ?></td>
       <td class="row buttons_td">
+        <a href="vehicule.php?id=<?php echo $vehicule->getId(); ?>" class="btn btn-primary"><i class="material-icons">create</i></a>
       <?php
       $form_delete = new Form('', ['home']);
       $form_delete->addHidden('id_vehicule', $vehicule->getId());

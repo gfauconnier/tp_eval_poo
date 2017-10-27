@@ -67,9 +67,9 @@ class Form {
     $this->form .= '<input type="hidden" name="'.$name.'" value="'.$value.'">';
   }
 
+// adds a submit button and closes the form
   public function addInputSubmit($name, $cssclasses='', $value='')
   {
-    //$this->form .= '<input type="submit" id="'.$name.'" name ="'.$name.'" value="'.$value.'" class="'.$cssclasses.'">';
     $this->form .= '<button type="submit" class="'.$cssclasses.'" name="'.$name.'">'.$value.'</button>';
     $this->form .= '</form>';
   }
