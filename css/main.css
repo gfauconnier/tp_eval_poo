@@ -2,6 +2,18 @@ table, .sort_type form {
   margin: auto;
 }
 
+#vehiculesTable thead tr {
+  background-color: grey;
+}
+
+#vehiculesTable tbody tr:nth-child(even) {
+  background-color: #D3D3D3;
+}
+
+#vehiculesTable tbody tr:hover {
+  background-color: #C2C2C2;
+}
+
 table tr td {
   min-width: 15vw;
   padding: 2px;
