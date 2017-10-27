@@ -2,6 +2,7 @@
 class Form {
   protected $form;
 
+// depending on sent parameters changes the action of the form
   public function __construct($cssclasses='', array $action=[])
   {
     $formaction = '';
@@ -70,7 +71,7 @@ class Form {
 // adds a submit button and closes the form
   public function addInputSubmit($name, $cssclasses='', $value='')
   {
-    $this->form .= '<button type="submit" class="'.$cssclasses.'" name="'.$name.'">'.$value.'</button>';
+    $this->form .= '<button type="submit" class="'.$cssclasses.'" name="'.$name.'" title="'.ucfirst($name).'">'.$value.'</button>';
     $this->form .= '</form>';
   }
 

@@ -1,6 +1,8 @@
-table, .sort_type form {
+table, .sort_type form, form.new_vehicule {
   margin: auto;
 }
+
+/* Home Table */
 
 #vehiculesTable thead tr {
   background-color: grey;
@@ -27,11 +29,11 @@ table tr td {
   font-weight: bold;
 }
 
+/* Forms */
 form.new_vehicule {
   display: flex;
   flex-direction: column;
   width: 90%;
-  margin: auto;
 }
 
 form.checkboxes {
@@ -43,11 +45,31 @@ form.checkboxes {
   font-weight: bold;
 }
 
+textarea, form.modify_vehicule input[type="text"] {
+  border: none;
+  border-bottom: 1px solid grey;
+}
+
 textarea {
   resize: none;
 }
 
-form.modify_vehicule input[type=text]{
-  border: none;
-  border-bottom: 1px solid grey;
+form.modify_vehicule input.focused {
+  border-bottom: 2px solid #4FAA4F;
+}
+
+form.modify_vehicule textarea.focused {
+  border: 2px solid #4FAA4F;
+}
+
+/* */
+
+.mod_card, .del_div {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+}
+
+.mod_card form button {
+  height: 100%;
 }
