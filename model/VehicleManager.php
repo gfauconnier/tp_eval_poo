@@ -22,7 +22,7 @@ class VehicleManager
     public function vehicleExists($value)
     {
         $selector = $this->val_type($value);
-        $query = $this->_db->query('SELECT * FROM vehicles WHERE '.$selector.' = \''.$value.'\'');
+        $query = $this->_db->query('SELECT * FROM vehicules WHERE '.$selector.' = \''.$value.'\'');
         $data = $query->fetch(PDO::FETCH_ASSOC);
         if ($data) {
             return true;
@@ -36,7 +36,7 @@ class VehicleManager
     {
         $selector = $this->val_type($value);
         if ($this->vehicleExists($value)) {
-            $query = $this->_db->query('SELECT * FROM vehicles WHERE '.$selector.' = '.$value);
+            $query = $this->_db->query('SELECT * FROM vehicules WHERE '.$selector.' = '.$value);
             $data = $query->fetch(PDO::FETCH_ASSOC);
 
             switch ($data['type']) {
@@ -63,7 +63,7 @@ class VehicleManager
         $vehicles = [];
         if (count($checked)!=1) {
             $ischecked = $this->is_checked($checked);
-            $query = $this->_db->query('SELECT * FROM vehicles'.$ischecked);
+            $query = $this->_db->query('SELECT * FROM vehicules'.$ischecked);
             $data = $query->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($data as $vehicle) {
@@ -90,7 +90,7 @@ class VehicleManager
     public function addVehicle(array $data)
     {
         if (!$this->vehicleExists($data['license_plate'])) {
-            $query = $this->_db->prepare('INSERT INTO vehicles(license_plate, type, brand, model, price, description) VALUES(:license_plate, :type, :brand, :model, :price, :description)');
+            $query = $this->_db->prepare('INSERT INTO vehicules(license_plate, type, brand, model, price, description) VALUES(:license_plate, :type, :brand, :model, :price, :description)');
             $query->execute(array('license_plate'=>$data['license_plate'], 'type'=>$data['type'], 'brand'=>$data['brand'], 'model'=>$data['model'], 'price'=>$data['price'], 'description'=>$data['description']));
             return 'Vehicle created.';
         }
@@ -101,7 +101,7 @@ class VehicleManager
     public function deleteVehicle($id)
     {
         if ($this->vehicleExists($id)) {
-            $query = $this->_db->query('DELETE FROM vehicles WHERE id = '.$id);
+            $query = $this->_db->query('DELETE FROM vehicules WHERE id = '.$id);
         }
     }
 
@@ -109,7 +109,7 @@ class VehicleManager
     public function updateVehicle($vehicle)
     {
         if ($this->vehicleExists($vehicle->getId())) {
-            $query = $this->_db->prepare('UPDATE vehicles SET brand = :brand, model = :model, price = :price, description = :description WHERE id = :id');
+            $query = $this->_db->prepare('UPDATE vehicules SET brand = :brand, model = :model, price = :price, description = :description WHERE id = :id');
             $query->execute(array('id'=>$vehicle->getId(),'brand'=>$vehicle->getBrand(),'model'=>$vehicle->getModel(),'price'=>$vehicle->getPrice(),'description'=>$vehicle->getDescription()));
         }
     }
