@@ -5,7 +5,7 @@ if (isset($message)) {
   echo $message;
 }
 ?>
-<div class="container collapse" id="collapseNewVehicule">
+<div class="container collapse" id="collapseNewVehicle">
 <?php
   echo $form_new->getForm();
 ?>

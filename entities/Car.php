@@ -3,7 +3,7 @@
 /**
  *
  */
-class Car extends Vehicule
+class Car extends Vehicle
 {
 
 }

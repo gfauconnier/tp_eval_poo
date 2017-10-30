@@ -8,4 +8,4 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 
-$manager = new VehiculeManager($db);
+$manager = new VehicleManager($db);

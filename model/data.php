@@ -1,4 +1,4 @@
 <?php
 session_start();
-require 'VehiculeManager.php';
+require 'VehicleManager.php';
 require 'dbconnect/dbconnect.php';
