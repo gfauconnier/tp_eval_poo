@@ -51,7 +51,7 @@ class Form {
     $this->form .= '<div class="row col-6 justify-content-around checkboxes">';
     foreach ($checkboxes as $value) {
       $ischecked = in_array($value, $checked) ? 'checked' : '';
-      $this->form .= '<label for="'.$value.'">'.$value.'</label><input id="'.$value.'" type="checkbox" name="'.$value.'" value="'.$value.'" '.$ischecked.'>';
+      $this->form .= '<label for="'.$value.'" class="col-9 col-md-3">'.$value.'</label><input id="'.$value.'" type="checkbox" name="'.$value.'" value="'.$value.'" '.$ischecked.'>';
     }
     $this->form .= '</div>';
   }
