@@ -13,7 +13,7 @@
 <?php
 foreach ($vehicules as $vehicule) { ?>
   <!-- <a href="vehicule.php?id="> -->
-  <tr class="container" id="<?php echo $vehicule->getId(); ?>">
+  <tr class="container" id="<?php echo $vehicule->getId(); ?>" title="Show details">
       <td><?php echo $vehicule->getType(); ?></td>
       <td><?php echo $vehicule->getLicense_plate(); ?></td>
       <td><?php echo $vehicule->getBrand(); ?></td>

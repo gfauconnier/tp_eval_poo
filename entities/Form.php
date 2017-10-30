@@ -30,7 +30,7 @@ class Form {
   public function addInputText($name, $cssclasses='', $value='')
   {
     $this->form .= '<div class="newVehiculeFormDiv">';
-    $this->form .= '<label for="'.$name.'" class="col-3">'.ucfirst($name).' : </label>';
+    $this->form .= '<label for="'.$name.'" class="col-9 col-md-3">'.ucfirst($name).' : </label>';
     $this->form .= '<input type="text" id="'.$name.'" name ="'.$name.'" value="'.$value.'" class="'.$cssclasses.'" required>';
     $this->form .= '</div>';
   }
@@ -59,7 +59,7 @@ class Form {
 // adds a textarea
   public function addTextarea($name, $cssclasses='', $value='')
   {
-    $this->form .= '<div class="newVehiculeFormDiv"><label for="'.$name.'" class="col-3">'.ucfirst($name).' : </label><textarea id="'.$name.'" name="'.$name.'" class="'.$cssclasses.'">'.$value.'</textarea></div>';
+    $this->form .= '<div class="newVehiculeFormDiv"><label for="'.$name.'" class="col-9 col-md-3">'.ucfirst($name).' : </label><textarea id="'.$name.'" name="'.$name.'" class="'.$cssclasses.'">'.$value.'</textarea></div>';
   }
 
 // adds a hidden input

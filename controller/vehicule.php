@@ -28,11 +28,11 @@ if(isset($_GET['id'])) {
 
 // creates the modify vehicule form
     $form_modify = new Form('modify_vehicule');
-    $form_modify->addInputText('brand', '', $vehicule->getBrand());
-    $form_modify->addInputText('model', '', $vehicule->getModel());
-    $form_modify->addInputText('price', '', $vehicule->getPrice());
-    $form_modify->addTextarea('description', '', $vehicule->getDescription());
-    $form_modify->addInputSubmit('modify', 'btn btn-primary', 'Modify');
+    $form_modify->addInputText('brand', 'col-9', $vehicule->getBrand());
+    $form_modify->addInputText('model', 'col-9', $vehicule->getModel());
+    $form_modify->addInputText('price', 'col-9', $vehicule->getPrice());
+    $form_modify->addTextarea('description', 'col-9', $vehicule->getDescription());
+    $form_modify->addInputSubmit('modify', 'btn btn-primary mx-auto col-4', 'Modify');
 
 // delete form
     $form_delete = new Form('', ['home']);

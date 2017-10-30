@@ -7,7 +7,7 @@ $form_new->addInputText('brand', 'col-7');
 $form_new->addInputText('model', 'col-7');
 $form_new->addInputText('price', 'col-7');
 $form_new->addTextarea('description', 'col-7');
-$form_new->addInputSubmit('create', 'btn btn-success col-4', 'Create');
+$form_new->addInputSubmit('create', 'btn btn-success col-4 mx-auto', 'Create');
 
 if(isset($_POST['create'])) {
   $vehicule_post = [];
