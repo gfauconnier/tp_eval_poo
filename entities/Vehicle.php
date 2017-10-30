@@ -49,7 +49,10 @@ class Vehicle
      */
     public function setId($id)
     {
-        $this->id = $id;
+        $id = (int) $id;
+        if (is_numeric($id)) {
+          $this->id = $id;
+        }
     }
 
     /**
@@ -69,7 +72,10 @@ class Vehicle
      */
     public function setType($type)
     {
+      $types = ['Car', 'Truck', 'Bike'];
+      if(in_array($type, $types)) {
         $this->type = $type;
+      }
     }
 
     /**
@@ -89,7 +95,9 @@ class Vehicle
      */
     public function setLicense_plate($license_plate)
     {
+      if(strlen($license_plate) <= 12) {
         $this->license_plate = $license_plate;
+      }
     }
 
     /**
@@ -109,7 +117,9 @@ class Vehicle
      */
     public function setBrand($brand)
     {
+      if(strlen($brand) <= 25) {
         $this->brand = $brand;
+      }
     }
 
     /**
@@ -129,7 +139,9 @@ class Vehicle
      */
     public function setModel($model)
     {
+      if(strlen($model) <= 30) {
         $this->model = $model;
+      }
     }
 
     /**
@@ -149,7 +161,10 @@ class Vehicle
      */
     public function setPrice($price)
     {
+      $price = (int) $price;
+      if (is_numeric($price)) {
         $this->price = $price;
+      }
     }
 
     /**

@@ -48,10 +48,10 @@ class Form {
 // adds checkboxes with labels
   public function addCheckboxes(array $checkboxes, array $checked)
   {
-    $this->form .= '<div class="row col-6 justify-content-around checkboxes">';
+    $this->form .= '<div class="row col-6 justify-content-start checkboxes">';
     foreach ($checkboxes as $value) {
       $ischecked = in_array($value, $checked) ? 'checked' : '';
-      $this->form .= '<label for="'.$value.'" class="col-9 col-md-3">'.$value.'</label><input id="'.$value.'" type="checkbox" name="'.$value.'" value="'.$value.'" '.$ischecked.'>';
+      $this->form .= '<label for="'.$value.'" class="col-9 col-md-2 offset-md-1">'.$value.'</label><input id="'.$value.'" type="checkbox" name="'.$value.'" value="'.$value.'" '.$ischecked.'>';
     }
     $this->form .= '</div>';
   }

@@ -87,11 +87,16 @@ class VehicleManager
     }
 
     // inserts a new vehicle in databse if it doesn't exist yet
-    public function addVehicle(array $data)
+    public function addVehicle($vehicle) // change to objetct
     {
-        if (!$this->vehicleExists($data['license_plate'])) {
+        if (!$this->vehicleExists($vehicle->getLicense_plate())) {
             $query = $this->_db->prepare('INSERT INTO vehicules(license_plate, type, brand, model, price, description) VALUES(:license_plate, :type, :brand, :model, :price, :description)');
-            $query->execute(array('license_plate'=>$data['license_plate'], 'type'=>$data['type'], 'brand'=>$data['brand'], 'model'=>$data['model'], 'price'=>$data['price'], 'description'=>$data['description']));
+            $query->execute(array('license_plate'=>$vehicle->getLicense_plate(),
+            'type'=>$vehicle->getType(),
+            'brand'=>$vehicle->getBrand(),
+            'model'=>$vehicle->getModel(),
+            'price'=>$vehicle->getPrice(),
+            'description'=>$vehicle->getDescription()));
             return 'Vehicle created.';
         }
         return 'A vehicle with this license plate already exists.';

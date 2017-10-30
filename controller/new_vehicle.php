@@ -20,7 +20,20 @@ if(isset($_POST['create'])) {
     if (strlen($vehicle_post['license_plate']) > 12 || strlen($vehicle_post['brand']) > 25 || strlen($vehicle_post['model']) > 30 || !is_numeric($vehicle_post['price'])) {
       $message = 'At least one field wasn\'t correctly filled. Try again.';
     } else {
-      $message = $manager->addVehicle($vehicle_post);
+      switch ($vehicle_post['type']) {
+        case 'Car':
+          $new_vehicle = new Car($vehicle_post);
+          break;
+        case 'Bike':
+          $new_vehicle = new Bike($vehicle_post);
+          break;
+        case 'Truck':
+          $new_vehicle = new Truck($vehicle_post);
+          break;
+        default:
+          break;
+      }
+      $message = $manager->addVehicle($new_vehicle);
     }
   }
 }
