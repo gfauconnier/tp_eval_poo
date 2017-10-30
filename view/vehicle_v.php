@@ -1,5 +1,9 @@
 <main>
-
+  <?php
+  if (isset($update_message) && $message!='') {
+    echo '<p>'.$update_message.'</p>';
+  }
+   ?>
   <div class="mod_card">
     <div class="vehicle_details col-10 col-lg-11">
       <h2>Modify this <?php echo $vehicle->getType(); ?></h2>

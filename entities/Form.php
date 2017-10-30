@@ -27,11 +27,11 @@ class Form {
   }
 
 // adds an input text or submit
-  public function addInputText($name, $cssclasses='', $value='')
+  public function addInputText($name, $cssclasses='', $value='', $placeholder='')
   {
     $this->form .= '<div class="newVehicleFormDiv">';
     $this->form .= '<label for="'.$name.'" class="col-9 col-md-3">'.ucfirst($name).' : </label>';
-    $this->form .= '<input type="text" id="'.$name.'" name ="'.$name.'" value="'.$value.'" class="'.$cssclasses.'" required>';
+    $this->form .= '<input type="text" id="'.$name.'" name ="'.$name.'" value="'.$value.'" class="'.$cssclasses.'" placeholder="'.$placeholder.'" required>';
     $this->form .= '</div>';
   }
 
