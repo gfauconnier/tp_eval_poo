@@ -2,6 +2,34 @@
   margin: auto;
 }
 
+form.new_vehicle, .mod_card, .del_div, header, .header_btn
+{
+  display: flex;
+}
+
+/* Header */
+
+header {
+  background-color: rgb(20, 27, 73);
+}
+
+header h1 {
+  color: white;
+}
+
+.header_btn {
+  padding: 10px;
+}
+
+.header_btn a, .header_btn button {
+  margin: 0 3px;
+}
+
+/* Main */
+main {
+  margin-top: 5vh;
+}
+
 /* Home Table */
 
 #vehiclesTable {
@@ -35,7 +63,6 @@ table tr td {
 
 /* Forms */
 form.new_vehicle {
-  display: flex;
   flex-direction: column;
   width: 90%;
 }
@@ -77,7 +104,6 @@ form.modify_vehicle textarea.focused {
 }
 
 .mod_card, .del_div {
-  display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
 }
