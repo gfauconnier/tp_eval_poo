@@ -20,19 +20,8 @@ if(isset($_POST['create'])) {
     if (strlen($vehicle_post['license_plate']) > 12 || strlen($vehicle_post['brand']) > 25 || strlen($vehicle_post['model']) > 30 || !is_numeric($vehicle_post['price'])) {
       $message = 'At least one field wasn\'t correctly filled. Try again.';
     } else {
-      switch ($vehicle_post['type']) {
-        case 'Car':
-          $new_vehicle = new Car($vehicle_post);
-          break;
-        case 'Bike':
-          $new_vehicle = new Bike($vehicle_post);
-          break;
-        case 'Truck':
-          $new_vehicle = new Truck($vehicle_post);
-          break;
-        default:
-          break;
-      }
+      // creates a new object depending on vehicle_post['type'] (Car, Truck, Bike)
+      $new_vehicle = new $vehicle_post['type']($vehicle_post);
       $message = $manager->addVehicle($new_vehicle);
     }
   }

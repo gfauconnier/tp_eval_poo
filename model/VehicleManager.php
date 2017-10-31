@@ -38,21 +38,8 @@ class VehicleManager
         if ($this->vehicleExists($value)) {
             $query = $this->_db->query('SELECT * FROM vehicules WHERE '.$selector.' = '.$value);
             $data = $query->fetch(PDO::FETCH_ASSOC);
-
-            switch ($data['type']) {
-            case 'Car':
-              return new Car($data);
-              break;
-            case 'Bike':
-              return new Bike($data);
-              break;
-            case 'Truck':
-              return new Truck($data);
-              break;
-            default:
-              return 'dafuk';
-              break;
-          }
+            // creates a new object depending on data['type'] (Car, Truck, Bike)
+            return new $data['type']($data);
         }
         return false;
     }
@@ -67,19 +54,8 @@ class VehicleManager
             $data = $query->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($data as $vehicle) {
-                switch ($vehicle['type']) {
-                  case 'Car':
-                    $vehicles[] = new Car($vehicle);
-                    break;
-                  case 'Bike':
-                    $vehicles[] = new Bike($vehicle);
-                    break;
-                  case 'Truck':
-                    $vehicles[] = new Truck($vehicle);
-                    break;
-                  default:
-                    break;
-                }
+              // creates a new object depending on vehicle['type'] (Car, Truck, Bike)
+                $vehicles[] = new $vehicle['type']($vehicle);
             }
         }
 
