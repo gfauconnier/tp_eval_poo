@@ -1,7 +1,7 @@
 <main>
   <?php
-  if (isset($update_message) && $message!='') {
-    echo '<p>'.$update_message.'</p>';
+  if (isset($update_message) && $update_message!='') {
+    echo '<p class="info_message">'.$update_message.'</p>';
   }
    ?>
   <div class="mod_card">

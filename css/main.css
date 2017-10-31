@@ -7,6 +7,10 @@ form.new_vehicle, .mod_card, .del_div, header, .header_btn
   display: flex;
 }
 
+.header_btn a, .header_btn button, .buttons_td a, .buttons_td form {
+  margin: 0 3px;
+}
+
 /* Header */
 
 header {
@@ -21,13 +25,14 @@ header h1 {
   padding: 10px;
 }
 
-.header_btn a, .header_btn button {
-  margin: 0 3px;
+/* Main */
+
+main, p.info_message {
+  margin-top: 5vh;
 }
 
-/* Main */
-main {
-  margin-top: 5vh;
+p.info_message {
+  margin-left: 5vw;
 }
 
 /* Home Table */
@@ -40,21 +45,21 @@ main {
   background-color: grey;
 }
 
+#vehiclesTable tbody tr {
+  cursor: pointer;
+}
+
 #vehiclesTable tbody tr:nth-child(even) {
   background-color: #D3D3D3;
 }
 
 #vehiclesTable tbody tr:hover {
-  background-color: #C2C2C2;
+  background-color: #B2B2B2;
 }
 
 table tr td {
   min-width: 15vw;
   padding: 2px;
-}
-
-.buttons_td a, .buttons_td form {
-  margin: 0 2px;
 }
 
 .detail_h {

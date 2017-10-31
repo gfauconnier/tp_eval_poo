@@ -9,6 +9,6 @@ require '../view/template/header.php';
 </div>
 <?php
 if (isset($message) && $message!='') {
-  echo '<p>'.$message.'</p>';
+  echo '<p class="info_message">'.$message.'</p>';
 }
  ?>

@@ -22,10 +22,10 @@ if (isset($_GET['id'])) {
                 $vehicle_mod['price'] = (int) $vehicle_mod['price'];
                 $update_message = '';
                 // rehydrates the object before sending it in VehicleManager updateVehicle
-                if (strlen($vehicle_mod['brand']) <= 25 && strlen($vehicle_mod['model']) <= 30 && is_numeric($vehicle_post['price'])) {
+                if (strlen($vehicle_mod['brand']) <= 25 && strlen($vehicle_mod['model']) <= 30 && is_numeric($vehicle_mod['price'])) {
                     $vehicle->hydrate($vehicle_mod);
                     $manager->updateVehicle($vehicle);
-                    $update_message = 'Vehcle data has been updated.';
+                    $update_message = 'Vehicle data has been updated.';
                 } else {
                   $update_message = 'At least one field wasn\'t correctly filled. Try again.';
                 }
