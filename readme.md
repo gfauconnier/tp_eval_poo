@@ -18,3 +18,6 @@ I had to create a basic car handling application which hadd to :
 - Bootstrap
 - a little JQuery
 - HTML & CSS
+
+## Docs :  
+Wireframes, database (scheme and .SQL file) and usecase are in docs folder
